@@ -4,6 +4,6 @@
 
    <label>Enter Sales Manager Name</label><asp:TextBox ID="txtname" runat="server"></asp:TextBox><br />
     <input type="button" value="add" onclick="" />
-    <asp:Button ID="addajax" Text="AJAX" runat="server"/>
+    <asp:Button ID="addajax" Text="AJAX" runat="server" OnClick="addajax_Click"/>
 
 </asp:Content>

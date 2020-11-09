@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -21,8 +22,8 @@ namespace ASP.NET_MSSQL_AJAX
             string connetionString;
             SqlConnection cnn;
 
-            connetionString = @"Data Source=DESKTOP-6PQ3QDE\SQLEXPRESS;Initial Catalog=Sales_Db;User ID=sa;Password=demol23";
-
+            connetionString = @"Data Source=DESKTOP-6PQ3QDE\SQLEXPRESS;Initial Catalog=Sales_Db;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+           
             cnn = new SqlConnection(connetionString);
 
             cnn.Open();
@@ -32,12 +33,19 @@ namespace ASP.NET_MSSQL_AJAX
             SqlDataAdapter adapter = new SqlDataAdapter();
             String sql = "";
 
-            sql = "Insert into SalesManager(Name) value('Ted')";
-
-
+            // sql = "Insert into SalesManager(Name) values('"+ txtname.Text+"')";
+            sql = "Insert into SalesManager(Name) values(@name)";
+            
+           
+          
             command = new SqlCommand(sql, cnn);
-            adapter.InsertCommand = new SqlCommand(sql, cnn);
-            adapter.InsertCommand.ExecuteNonQuery();
+            
+            //adapter.InsertCommand = new SqlCommand(sql, cnn);
+            //adapter.InsertCommand.ExecuteNonQuery();
+
+            command.Parameters.AddWithValue("@name", SqlDbType.VarChar);
+            command.Parameters["@name"].Value = txtname.Text;
+            command.ExecuteNonQuery();
 
             command.Dispose(); 
 	    	cnn.Close();
