@@ -28,7 +28,19 @@ namespace ASP.NET_MSSQL_AJAX
             cnn.Open();
 
             Response.Write("Connection MAde");
-            cnn.Close();
+            SqlCommand command;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            String sql = "";
+
+            sql = "Insert into SalesManager(Name) value('Ted')";
+
+
+            command = new SqlCommand(sql, cnn);
+            adapter.InsertCommand = new SqlCommand(sql, cnn);
+            adapter.InsertCommand.ExecuteNonQuery();
+
+            command.Dispose(); 
+	    	cnn.Close();
 
         }
     }
