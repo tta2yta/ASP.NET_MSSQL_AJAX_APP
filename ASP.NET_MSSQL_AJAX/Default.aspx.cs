@@ -21,7 +21,7 @@ namespace ASP.NET_MSSQL_AJAX
             string connetionString;
             SqlConnection cnn;
 
-            connetionString = @"Data Source=WIN-50GP30FGO75;Initial Catalog=Demodb ;User ID=sa;Password=demol23";
+            connetionString = @"Data Source=DESKTOP-6PQ3QDE\SQLEXPRESS;Initial Catalog=Sales_Db;User ID=sa;Password=demol23";
 
             cnn = new SqlConnection(connetionString);
 
