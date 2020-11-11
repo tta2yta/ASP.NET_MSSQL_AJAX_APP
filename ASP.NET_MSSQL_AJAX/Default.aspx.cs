@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -12,6 +13,11 @@ namespace ASP.NET_MSSQL_AJAX
 {
     public partial class _Default : Page
     {
+        public class EduDesc
+        {
+            public string msg { get; set; }
+
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
            
@@ -52,10 +58,59 @@ namespace ASP.NET_MSSQL_AJAX
 	    	cnn.Close();
 
         }
+
         [WebMethod]
         public static string method()
         {
-            return "Ted";
+            string connetionString;
+            SqlConnection cnn;
+
+            connetionString = @"Data Source=DESKTOP-6PQ3QDE\SQLEXPRESS;Initial Catalog=Sales_Db;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+            cnn = new SqlConnection(connetionString);
+
+            cnn.Open();
+
+           // Response.Write("Connection MAde");
+            SqlCommand command;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            String sql = "";
+
+            // sql = "Insert into SalesManager(Name) values('"+ txtname.Text+"')";
+            sql = "Insert into SalesManager(Name) values(@name)";
+
+
+
+            command = new SqlCommand(sql, cnn);
+
+            //adapter.InsertCommand = new SqlCommand(sql, cnn);
+            //adapter.InsertCommand.ExecuteNonQuery();
+
+            command.Parameters.AddWithValue("@name", SqlDbType.VarChar);
+            command.Parameters["@name"].Value = "hhh";
+            command.ExecuteNonQuery();
+
+            command.Dispose();
+            cnn.Close();
+            //Create my object
+            EduDesc obj = new EduDesc() { msg = "good" };
+            //return "Hello " + name + Environment.NewLine + "The Current Time is: "
+            // + DateTime.Now.ToString();
+            Console.WriteLine(JsonConvert.SerializeObject(obj));
+
+            return JsonConvert.SerializeObject(obj);
+            //Tranform it to Json object
+            
+        }
+
+[System.Web.Services.WebMethod]
+
+        public static bool IsLeapYear(int year)
+
+        {
+
+            return DateTime.IsLeapYear(year);
+
         }
     }
 }
