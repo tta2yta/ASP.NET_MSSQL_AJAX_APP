@@ -35,7 +35,18 @@
             $('#add').click(function () {
                 alert("Hello")
                 const name = document.getElementById("<%=txtname.ClientID%>").value;
-                alert(name);
+                const age = document.getElementById("age").value;
+                const dob = document.getElementById("<%=txtdob.ClientID%>").value;
+                const money = document.getElementById("money").value;
+                alert(name + " " + age + " " + dob + " " + money);
+                data = {
+                    'name': name,
+                    'age': age,
+                    'dob': dob,
+                    'money': money
+                };
+                alert(JSON.stringify(data));
+                console.log(data);
                 return;
                 var pagePath = window.location.pathname + "/method";
                 var dataString = "{ 'value':'ab} ";
@@ -45,6 +56,7 @@
                     type: "POST",
                     url: "Default.aspx/method",
                     contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(data),
                     dataType: "json",  
                     error:
                         function (XMLHttpRequest, textStatus, errorThrown) {
