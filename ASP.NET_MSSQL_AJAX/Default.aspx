@@ -6,6 +6,7 @@
             <label>Enter Sales Manager Name</label><asp:TextBox ID="txtname" runat="server"></asp:TextBox><br />
             <label>Enter Age</label><input type="text" name="age" id="age" />
             <label>Enter Date of Birth</label><asp:TextBox ID="txtdob" runat="server"></asp:TextBox>
+            <label>Enter Income</label><input type="text" name="money" id="money" />
 
 
             <input type="button" id="add" value="add" />
