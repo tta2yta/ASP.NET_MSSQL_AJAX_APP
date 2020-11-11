@@ -34,7 +34,7 @@
         $(document).ready(function () {
             $('#add').click(function () {
                 alert("Hello")
-                const name = document.getElementById("<%=txtname%>").value();
+                const name = document.getElementById("<%=txtname.ClientID%>").value;
                 alert(name);
                 return;
                 var pagePath = window.location.pathname + "/method";
