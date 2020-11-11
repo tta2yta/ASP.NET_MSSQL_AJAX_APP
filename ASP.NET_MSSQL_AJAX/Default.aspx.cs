@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Services;
 using System.Web.UI;
@@ -65,7 +66,8 @@ namespace ASP.NET_MSSQL_AJAX
         [WebMethod]
         public static string method(SalesManager salesManager)
         {
-            if(salesManager == null)
+          //salesManager.age.ToString()
+            if (Regex.IsMatch(salesManager.age.ToString(), @"^\d+$") || salesManager.name=="")
             {
                 return "Please Enter Correct Values";
             }
