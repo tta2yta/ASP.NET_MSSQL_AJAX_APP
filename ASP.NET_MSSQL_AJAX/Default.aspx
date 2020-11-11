@@ -20,6 +20,7 @@
       
             <div style="margin-left:20%"><input type="button" id="add" value="add" /><asp:Button ID="addajax" Text="AJAX" runat="server" OnClick="addajax_Click" /></div>
     <%--</form>--%>
+        <div id="msg"></div>
             </div>
 
    
@@ -67,6 +68,7 @@
                     success:
                         function (result) {
                             alert(result + "lll");
+                            $('#msg').text = result;
 
                         }
 
