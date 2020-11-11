@@ -18,7 +18,7 @@
               
                <%-- <asp:TextBox ID="txtdob" runat="server" Height="27px" Width="25%"></asp:TextBox>--%>
                 <div class="calander-lb">
-                    <input type="date" id="txtdob" name="birthdaytime">
+                    <input type="date" id="txtdob" name="birthdaytime" value="2020-07-02" />
                    <%--%--  <asp:Calendar ID="txtdob" runat="server" SelectedDate="11/11/2020 13:30:28"></asp:Calendar>--%>
                   </div>
             </div> 
@@ -42,6 +42,17 @@
        
 
         $(document).ready(function () {
+            alert("document ready");
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+
+            today = yyyy + '-' + mm + '-' + dd;
+            alert(today)
+            document.getElementById("txtdob").value = today;
+
+
             $('#add').click(function () {
               //alert("Hello")
                 const name = document.getElementById("<%=txtname.ClientID%>").value;
