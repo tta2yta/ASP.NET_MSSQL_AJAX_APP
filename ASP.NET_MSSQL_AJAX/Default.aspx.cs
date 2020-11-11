@@ -124,7 +124,7 @@ namespace ASP.NET_MSSQL_AJAX
                         {
                             name = dr.GetString(1),
                             age = dr.GetInt32(2),
-                            dob = dr.GetDateTime(3),
+                            dob = dr.GetDateTime(3).Date,
                             money = dr.GetDecimal(4)
                         });
                     }
