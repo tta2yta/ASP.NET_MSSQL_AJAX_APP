@@ -63,7 +63,7 @@ namespace ASP.NET_MSSQL_AJAX
         }
 
         [WebMethod]
-        public static string method()
+        public static string method(SalesManager salesManager)
         {
             string connetionString;
             SqlConnection cnn;
