@@ -42,7 +42,8 @@
        
 
         $(document).ready(function () {
-          //alert("document ready");
+            //alert("document ready");
+           
             var today = new Date();
             var dd = String(today.getDate()).padStart(2, '0');
             var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -92,7 +93,9 @@
                     success:
                         function (result) {
                             alert(result.d + "Inserted");
-                            $('#msg').text(result.d)
+                            console.log(result.d)
+                            res = handleSuccess(result.d)
+                            $('#msg').html(res)
 
                         }
 
@@ -100,6 +103,23 @@
 
 
             });
+
+            function handleSuccess(data) {
+                let res = "<table border='1'>";
+                let kk = "<h3>ppp</h3>";
+                for (let rr of data) {
+                    console.log(rr)
+                    res += "<tr>"
+                    res += "<td>" + rr.name + "</td>"
+                    res += "<td>" + rr.age + "</td>"
+                    res += "<td>" + rr.dob + "</td>"
+                    res += "<td>" + rr.money + "</td>"
+                    res += "</tr>"
+                }
+                res += "</table>";
+                console.log(res)
+                return res;
+            }
         });
        
         

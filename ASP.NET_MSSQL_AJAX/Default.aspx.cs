@@ -141,7 +141,9 @@ namespace ASP.NET_MSSQL_AJAX
 
             catch (Exception ex)
             {
-                return "Record not Inserted, Please Try Again";
+                List<SalesManager> obj = new List<SalesManager>();
+                obj.Add(new SalesManager() { msg = "Please Try Again" });
+                 return obj;
             }
            
         }
