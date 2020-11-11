@@ -80,10 +80,7 @@ namespace ASP.NET_MSSQL_AJAX
             String sql = "";
 
             // sql = "Insert into SalesManager(Name) values('"+ txtname.Text+"')";
-            sql = "Insert into SalesManager(Name) values(@name)";
-
-
-
+            sql = "Insert into SalesManager(Name,Age,Dob,Income) values(@name, @age, @dob, @income)";
             command = new SqlCommand(sql, cnn);
 
             //adapter.InsertCommand = new SqlCommand(sql, cnn);
@@ -91,19 +88,25 @@ namespace ASP.NET_MSSQL_AJAX
 
             command.Parameters.AddWithValue("@name", SqlDbType.VarChar);
             command.Parameters["@name"].Value = "hhh";
+            command.Parameters.AddWithValue("@age", SqlDbType.VarChar);
+            command.Parameters["@age"].Value = "hhh";
+            command.Parameters.AddWithValue("@dob", SqlDbType.VarChar);
+            command.Parameters["@dob"].Value = "hhh";
+            command.Parameters.AddWithValue("@income", SqlDbType.VarChar);
+            command.Parameters["@income"].Value = "hhh";
             command.ExecuteNonQuery();
 
             command.Dispose();
             cnn.Close();
             //Create my object
-            EduDesc obj = new EduDesc() { msg = "good" };
+            //uDesc obj = new EduDesc() { msg = "good" };
             //return "Hello " + name + Environment.NewLine + "The Current Time is: "
             // + DateTime.Now.ToString();
-            Console.WriteLine(JsonConvert.SerializeObject(obj));
+            //nsole.WriteLine(JsonConvert.SerializeObject(obj));
 
-            return JsonConvert.SerializeObject(obj);
+            //return JsonConvert.SerializeObject(obj);
             //Tranform it to Json object
-            
+            return "hello";
         }
 
 [System.Web.Services.WebMethod]

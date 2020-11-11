@@ -57,11 +57,11 @@
                     type: "POST",
                     url: "Default.aspx/method",
                     contentType: "application/json; charset=utf-8",
-                    data: JSON.stringify(data),
+                    data: JSON.stringify({ salesManager: data }),
                     dataType: "json",  
                     error:
                         function (XMLHttpRequest, textStatus, errorThrown) {
-                            alert("Error" + errorThrown);
+                            alert("Error" + XMLHttpRequest.responseText)
                             console.log(textStatus + " " + XMLHttpRequest.responseText)
                         },
                     success:
