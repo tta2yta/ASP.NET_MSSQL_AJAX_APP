@@ -13,9 +13,12 @@ namespace ASP.NET_MSSQL_AJAX
 {
     public partial class _Default : Page
     {
-        public class EduDesc
+        public class SalesManager
         {
-            public string msg { get; set; }
+            public string name { get; set; }
+            public int age { get; set; }
+            public DateTime dob { get; set; }
+            public decimal money { get; set; }
 
         }
         protected void Page_Load(object sender, EventArgs e)

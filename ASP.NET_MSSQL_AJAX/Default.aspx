@@ -33,24 +33,25 @@
 
         $(document).ready(function () {
             $('#add').click(function () {
-                alert("Hello")
+              //alert("Hello")
                 const name = document.getElementById("<%=txtname.ClientID%>").value;
                 const age = document.getElementById("age").value;
+              //var age=$("#age.val();
                 const dob = document.getElementById("<%=txtdob.ClientID%>").value;
                 const money = document.getElementById("money").value;
-                alert(name + " " + age + " " + dob + " " + money);
+             // alert(name + " " + age + " " + dob + " " + money);
                 data = {
                     'name': name,
                     'age': age,
                     'dob': dob,
                     'money': money
                 };
-                alert(JSON.stringify(data));
+             // alert(JSON.stringify(data));
                 console.log(data);
-                return;
+              //return;
                 var pagePath = window.location.pathname + "/method";
                 var dataString = "{ 'value':'ab} ";
-                alert(pagePath);
+              //alert(pagePath);
 
                 $.ajax({
                     type: "POST",
