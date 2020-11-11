@@ -104,9 +104,32 @@ namespace ASP.NET_MSSQL_AJAX
                 command.Parameters["@income"].Value = salesManager.money;
                 command.ExecuteNonQuery();
 
+                string sql1= "select * from SalesManager";
+                SqlCommand command1 = new SqlCommand(sql1, cnn);
+                SqlDataReader dr = command1.ExecuteReader();
+                
+                command1.Dispose();
                 command.Dispose();
                 cnn.Close();
+                List<SalesManager> salesManagers = new List<SalesManager>();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+
+                        salesManagers.Add(new SalesManager()
+                        {
+                            name = dr.GetString(1),
+                            age = dr.GetInt32(2),
+                            dob = dr.GetDateTime(3),
+                            money = dr.GetInt32(4)
+                        });
+                    }
+                }
+
                 return "Record Inserted Successfully";
+                    }
+                }
             }
 
             catch(Exception ex)
