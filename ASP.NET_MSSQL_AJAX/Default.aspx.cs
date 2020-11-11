@@ -67,7 +67,7 @@ namespace ASP.NET_MSSQL_AJAX
         public static string method(SalesManager salesManager)
         {
           //salesManager.age.ToString()
-            if (Regex.IsMatch(salesManager.age.ToString(), @"^\d+$") || salesManager.name=="")
+          if(!Regex.IsMatch(salesManager.age.ToString(), @"^\d+$") || salesManager.name=="")
             {
                 return "Please Enter Correct Values";
             }

@@ -42,14 +42,14 @@
        
 
         $(document).ready(function () {
-            alert("document ready");
+          //alert("document ready");
             var today = new Date();
             var dd = String(today.getDate()).padStart(2, '0');
             var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
             var yyyy = today.getFullYear();
 
             today = yyyy + '-' + mm + '-' + dd;
-            alert(today)
+           //lert(today)
             document.getElementById("txtdob").value = today;
 
 
