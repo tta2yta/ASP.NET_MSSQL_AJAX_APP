@@ -3,6 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="sales-man-form">
         <form name="sales-form" method="post" action="">
+            <div><h3>Enter Details About Sales Manager</h3></div>
            <div>
                 <label style="width:15%; text-align:right">Enter Sales Manager Name</label><asp:TextBox ID="txtname" runat="server" Height="27px" Width="25%"></asp:TextBox><br />
            </div>
@@ -18,7 +19,8 @@
             </div>
       
             <div style="margin-left:20%"><input type="button" id="add" value="add" /><asp:Button ID="addajax" Text="AJAX" runat="server" OnClick="addajax_Click" /></div>
-    </div>
+    </form>
+            </div>
 
    
 
