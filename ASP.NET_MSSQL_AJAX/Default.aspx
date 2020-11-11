@@ -34,6 +34,9 @@
         $(document).ready(function () {
             $('#add').click(function () {
                 alert("Hello")
+                const name = document.getElementById("<%=txtname%>").value();
+                alert(name);
+                return;
                 var pagePath = window.location.pathname + "/method";
                 var dataString = "{ 'value':'ab} ";
                 alert(pagePath);
