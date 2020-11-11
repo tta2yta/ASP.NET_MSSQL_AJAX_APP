@@ -65,48 +65,57 @@ namespace ASP.NET_MSSQL_AJAX
         [WebMethod]
         public static string method(SalesManager salesManager)
         {
-            string connetionString;
-            SqlConnection cnn;
+            try
+            {
+                string connetionString;
+                SqlConnection cnn;
 
-            connetionString = @"Data Source=DESKTOP-6PQ3QDE\SQLEXPRESS;Initial Catalog=Sales_Db;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+                connetionString = @"Data Source=DESKTOP-6PQ3QDE\SQLEXPRESS;Initial Catalog=Sales_Db;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-            cnn = new SqlConnection(connetionString);
+                cnn = new SqlConnection(connetionString);
 
-            cnn.Open();
+                cnn.Open();
 
-           // Response.Write("Connection MAde");
-            SqlCommand command;
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            String sql = "";
+                // Response.Write("Connection MAde");
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                String sql = "";
 
-            // sql = "Insert into SalesManager(Name) values('"+ txtname.Text+"')";
-            sql = "Insert into SalesManager(Name,Age,Dob,Income) values(@name, @age, @dob, @income)";
-            command = new SqlCommand(sql, cnn);
+                // sql = "Insert into SalesManager(Name) values('"+ txtname.Text+"')";
+                sql = "Insert into SalesManager(Name,Age,Dob,Income) values(@name, @age, @dob, @income)";
+                command = new SqlCommand(sql, cnn);
 
-            //adapter.InsertCommand = new SqlCommand(sql, cnn);
-            //adapter.InsertCommand.ExecuteNonQuery();
+                //adapter.InsertCommand = new SqlCommand(sql, cnn);
+                //adapter.InsertCommand.ExecuteNonQuery();
 
-            command.Parameters.AddWithValue("@name", SqlDbType.VarChar);
-            command.Parameters["@name"].Value = salesManager.name;
-            command.Parameters.AddWithValue("@age", SqlDbType.Int;
-            command.Parameters["@age"].Value = salesManager.age;
-            command.Parameters.AddWithValue("@dob", SqlDbType.Date);
-            command.Parameters["@dob"].Value = salesManager.dob;
-            command.Parameters.AddWithValue("@income", SqlDbType.Money);
-            command.Parameters["@income"].Value = salesManager.money;
-            command.ExecuteNonQuery();
+                command.Parameters.AddWithValue("@name", SqlDbType.VarChar);
+                command.Parameters["@name"].Value = salesManager.name;
+                command.Parameters.AddWithValue("@age", SqlDbType.Int);
+                command.Parameters["@age"].Value = salesManager.age;
+                command.Parameters.AddWithValue("@dob", SqlDbType.Date);
+                command.Parameters["@dob"].Value = salesManager.dob;
+                command.Parameters.AddWithValue("@income", SqlDbType.Money);
+                command.Parameters["@income"].Value = salesManager.money;
+                command.ExecuteNonQuery();
 
-            command.Dispose();
-            cnn.Close();
-            //Create my object
-            //uDesc obj = new EduDesc() { msg = "good" };
-            //return "Hello " + name + Environment.NewLine + "The Current Time is: "
-            // + DateTime.Now.ToString();
-            //nsole.WriteLine(JsonConvert.SerializeObject(obj));
+                command.Dispose();
+                cnn.Close();
+                //Create my object
+                //uDesc obj = new EduDesc() { msg = "good" };
+                //return "Hello " + name + Environment.NewLine + "The Current Time is: "
+                // + DateTime.Now.ToString();
+                //nsole.WriteLine(JsonConvert.SerializeObject(obj));
 
-            //return JsonConvert.SerializeObject(obj);
-            //Tranform it to Json object
-            return "hello";
+                //return JsonConvert.SerializeObject(obj);
+                //Tranform it to Json object
+                return "Record Inserted Successfully";
+            }
+
+            catch(Exception ex)
+            {
+                return "Record not Inserted, Please Try Again";
+            }
+           
         }
 
 [System.Web.Services.WebMethod]

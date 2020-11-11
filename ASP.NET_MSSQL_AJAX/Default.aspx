@@ -67,8 +67,8 @@
                         },
                     success:
                         function (result) {
-                            alert(result + "lll");
-                            $('#msg').text = result;
+                            alert(result.d + "Inserted");
+                            $('#msg').text(result.d)
 
                         }
 
