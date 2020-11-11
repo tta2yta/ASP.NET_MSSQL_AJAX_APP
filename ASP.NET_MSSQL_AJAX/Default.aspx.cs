@@ -87,13 +87,13 @@ namespace ASP.NET_MSSQL_AJAX
             //adapter.InsertCommand.ExecuteNonQuery();
 
             command.Parameters.AddWithValue("@name", SqlDbType.VarChar);
-            command.Parameters["@name"].Value = "hhh";
-            command.Parameters.AddWithValue("@age", SqlDbType.VarChar);
-            command.Parameters["@age"].Value = "hhh";
-            command.Parameters.AddWithValue("@dob", SqlDbType.VarChar);
-            command.Parameters["@dob"].Value = "hhh";
-            command.Parameters.AddWithValue("@income", SqlDbType.VarChar);
-            command.Parameters["@income"].Value = "hhh";
+            command.Parameters["@name"].Value = salesManager.name;
+            command.Parameters.AddWithValue("@age", SqlDbType.Int;
+            command.Parameters["@age"].Value = salesManager.age;
+            command.Parameters.AddWithValue("@dob", SqlDbType.Date);
+            command.Parameters["@dob"].Value = salesManager.dob;
+            command.Parameters.AddWithValue("@income", SqlDbType.Money);
+            command.Parameters["@income"].Value = salesManager.money;
             command.ExecuteNonQuery();
 
             command.Dispose();
