@@ -59,9 +59,12 @@
                 const age = document.getElementById("age").value;
                 //var age=$("#age.val();
                 const dob = document.getElementById("txtdob").value
-                alert(dob);
+               
                 const money = document.getElementById("money").value;
-             // alert(name + " " + age + " " + dob + " " + money);
+                if (name == "" || age == "" || money == "" || dob == "") {
+                    alert("Please Enter a Value in the field");
+                    return;
+                }
                 data = {
                     'name': name,
                     'age': age,
