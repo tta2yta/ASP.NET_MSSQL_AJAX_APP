@@ -24,15 +24,6 @@ namespace ASP.NET_MSSQL_AJAX
         protected global::System.Web.UI.WebControls.TextBox txtname;
 
         /// <summary>
-        /// txtdob control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtdob;
-
-        /// <summary>
         /// addajax control.
         /// </summary>
         /// <remarks>

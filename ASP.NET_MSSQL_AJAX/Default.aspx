@@ -11,15 +11,24 @@
             <div>
                 <label style=" width:15%; text-align:right">Enter Age</label><input type="text" name="age" id="age" style="width:25%;height:27px" />
             </div>
-            <div>
-                <label style=" width:15%; text-align:right">Enter Date of Birth</label><asp:TextBox ID="txtdob" runat="server" Height="27px" Width="25%"></asp:TextBox>
-            </div>
+            <div class="calander">
+                <div class="calander-la">
+                      <label >Enter Date of Birth</label>
+                </div>
+              
+               <%-- <asp:TextBox ID="txtdob" runat="server" Height="27px" Width="25%"></asp:TextBox>--%>
+                <div class="calander-lb">
+                    <input type="date" id="txtdob" name="birthdaytime">
+                   <%--%--  <asp:Calendar ID="txtdob" runat="server" SelectedDate="11/11/2020 13:30:28"></asp:Calendar>--%>
+                  </div>
+            </div> 
             <div>
                 <label style=" width:15%; text-align:right">Enter Income</label><input type="text" name="money" id="money" style="width:25%;height:27px" />
             </div>
       
             <div style="margin-left:20%"><input type="button" id="add" value="add" /><asp:Button ID="addajax" Text="AJAX" runat="server" OnClick="addajax_Click" /></div>
     <%--</form>--%>
+        
         <div id="msg"></div>
             </div>
 
@@ -37,8 +46,9 @@
               //alert("Hello")
                 const name = document.getElementById("<%=txtname.ClientID%>").value;
                 const age = document.getElementById("age").value;
-              //var age=$("#age.val();
-                const dob = document.getElementById("<%=txtdob.ClientID%>").value;
+                //var age=$("#age.val();
+                const dob = document.getElementById("txtdob").value
+                alert(dob);
                 const money = document.getElementById("money").value;
              // alert(name + " " + age + " " + dob + " " + money);
                 data = {

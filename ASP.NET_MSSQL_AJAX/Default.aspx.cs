@@ -65,6 +65,10 @@ namespace ASP.NET_MSSQL_AJAX
         [WebMethod]
         public static string method(SalesManager salesManager)
         {
+            if(salesManager == null)
+            {
+                return "Please Enter Correct Values";
+            }
             try
             {
                 string connetionString;
@@ -100,14 +104,6 @@ namespace ASP.NET_MSSQL_AJAX
 
                 command.Dispose();
                 cnn.Close();
-                //Create my object
-                //uDesc obj = new EduDesc() { msg = "good" };
-                //return "Hello " + name + Environment.NewLine + "The Current Time is: "
-                // + DateTime.Now.ToString();
-                //nsole.WriteLine(JsonConvert.SerializeObject(obj));
-
-                //return JsonConvert.SerializeObject(obj);
-                //Tranform it to Json object
                 return "Record Inserted Successfully";
             }
 

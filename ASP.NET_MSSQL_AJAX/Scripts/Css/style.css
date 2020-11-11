@@ -5,3 +5,21 @@
     text-align:center;
 
 }
+#Calendar1 {
+    border:1px solid red;
+    
+}
+.calander{
+    display:flex;
+    flex-direction:row;
+}
+.calander-la {
+    /*border: 1px solid red;*/
+    width:47%;
+    text-align:right;
+   
+}
+.calander-lb {
+ /*   border: 1px solid red;*/
+    width: 20%;
+}
