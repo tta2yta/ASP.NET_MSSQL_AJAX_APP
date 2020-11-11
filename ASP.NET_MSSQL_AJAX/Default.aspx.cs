@@ -20,6 +20,7 @@ namespace ASP.NET_MSSQL_AJAX
             public int age { get; set; }
             public DateTime dob { get; set; }
             public decimal money { get; set; }
+            public string msg { get; set; }
 
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -64,12 +65,16 @@ namespace ASP.NET_MSSQL_AJAX
         }
 
         [WebMethod]
-        public static string method(SalesManager salesManager)
+        /*  public static string method(SalesManager salesManager)
+          {*/
+        public static List<SalesManager> method(SalesManager salesManager)
         {
-          //salesManager.age.ToString()
-          if(!Regex.IsMatch(salesManager.age.ToString(), @"^\d+$") || salesManager.name=="")
+            //salesManager.age.ToString()
+            if (!Regex.IsMatch(salesManager.age.ToString(), @"^\d+$") || salesManager.name=="")
             {
-                return "Please Enter Correct Values";
+                List<SalesManager> obj = new List<SalesManager>();
+                obj.Add(new SalesManager() { msg = "Please Try Again" });
+;               return obj;
             }
             try
             {
@@ -108,9 +113,7 @@ namespace ASP.NET_MSSQL_AJAX
                 SqlCommand command1 = new SqlCommand(sql1, cnn);
                 SqlDataReader dr = command1.ExecuteReader();
                 
-                command1.Dispose();
-                command.Dispose();
-                cnn.Close();
+                
                 List<SalesManager> salesManagers = new List<SalesManager>();
                 if (dr.HasRows)
                 {
@@ -122,17 +125,21 @@ namespace ASP.NET_MSSQL_AJAX
                             name = dr.GetString(1),
                             age = dr.GetInt32(2),
                             dob = dr.GetDateTime(3),
-                            money = dr.GetInt32(4)
+                            money = dr.GetDecimal(4)
                         });
                     }
                 }
+                command1.Dispose();
+                command.Dispose();
+                cnn.Close();
 
-                return "Record Inserted Successfully";
-                    }
-                }
+                //return "Record Inserted Successfully";
+                return salesManagers;
+
+
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return "Record not Inserted, Please Try Again";
             }
