@@ -3,15 +3,21 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="sales-man-form">
         <form name="sales-form" method="post" action="">
-            <label>Enter Sales Manager Name</label><asp:TextBox ID="txtname" runat="server"></asp:TextBox><br />
-            <label>Enter Age</label><input type="text" name="age" id="age" />
-            <label>Enter Date of Birth</label><asp:TextBox ID="txtdob" runat="server"></asp:TextBox>
-            <label>Enter Income</label><input type="text" name="money" id="money" />
+           <div>
+                <label style="width:15%; text-align:right">Enter Sales Manager Name</label><asp:TextBox ID="txtname" runat="server" Height="27px" Width="25%"></asp:TextBox><br />
+           </div>
 
-
-            <input type="button" id="add" value="add" />
-            <asp:Button ID="addajax" Text="AJAX" runat="server" OnClick="addajax_Click"/>
-         </form>
+            <div>
+                <label style=" width:15%; text-align:right">Enter Age</label><input type="text" name="age" id="age" style="width:25%;height:27px" />
+            </div>
+            <div>
+                <label style=" width:15%; text-align:right">Enter Date of Birth</label><asp:TextBox ID="txtdob" runat="server" Height="27px" Width="25%"></asp:TextBox>
+            </div>
+            <div>
+                <label style=" width:15%; text-align:right">Enter Income</label><input type="text" name="money" id="money" style="width:25%;height:27px" />
+            </div>
+      
+            <div><input type="button" id="add" value="add" /><asp:Button ID="addajax" Text="AJAX" runat="server" OnClick="addajax_Click" /></div>
     </div>
 
    
