@@ -58,6 +58,25 @@
         function OnSuccess(response, userContext, methodName) {
             alert(response);
             console.log(response)
+            document.getElementById("msg").innerHTML = handleDisplaydata(response);
+
+        }
+
+        function handleDisplaydata(data) {
+            let res = "<table border='1'>";
+            let kk = "<h3>ppp</h3>";
+            for (let rr of data) {
+                console.log(rr)
+                res += "<tr>"
+                res += "<td>" + rr.name + "</td>"
+                res += "<td>" + rr.age + "</td>"
+                res += "<td>" + rr.dob + "</td>"
+                res += "<td>" + rr.money + "</td>"
+                res += "</tr>"
+            }
+            res += "</table>";
+            console.log(res)
+            return res;
         }
     </script>
 </body>
