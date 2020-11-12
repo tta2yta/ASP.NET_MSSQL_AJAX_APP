@@ -8,24 +8,25 @@
     <link href="Scripts/Css/style.css" rel="stylesheet" />
 </head>
 <body>
-          <div class="sales-man-form">
-              <div><h3>Enter Details About Sales Manager</h3></div> <span>
+      <div class="sales-man-form">
+          <h2>ASP.NET with ScriptManager(Ajax) to insert Record</h2>
+              <div><h3>Enter Details About Sales Manager</h3></div>
                   
         <form name="sales-form" method="post" action="" runat="server">
             <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
-</asp:ScriptManager>
-            <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Default.aspx">Home</asp:LinkButton></span>
+            </asp:ScriptManager>
+            <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Default.aspx">Home</asp:LinkButton>
            <div style="display:flex; flex-direction:row">
                  <div style="text-align:right; border:1px red solid; width:30%">
                     <label style=" text-align:right">Enter Sales Manager Name</label>
                 </div>
                    <div style="text-align:left; border:1px red solid; width:70%">
                     <asp:TextBox ID="txtname" runat="server" Height="27px" Width="25%"></asp:TextBox><br />
-               </div>
+                </div>
               
            </div>
 
-            <div style="display:flex; flex-direction:row">
+           <div style="display:flex; flex-direction:row">
                <div style="text-align:right; border:1px red solid; width:30%">
                     <label style="text-align:right">Enter Age</label>
                </div> 
@@ -55,11 +56,14 @@
                
             </div>
       
-            <div style=" display:flex; flex-direction:row; border:1px blue solid;"><input type="button" id="add" style="margin-left:40%;" value="add" onclick="addRecord()" /></div>
+            <div style=" display:flex; flex-direction:row; border:1px blue solid;">
+                <input type="button" id="add" style="margin-left:40%;" value="add" onclick="addRecord()" />
+
+            </div>
     </form>
         
         <div id="msg"></div>
-            </div>
+  </div>
    
 
     <script type="text/javascript">
@@ -70,13 +74,13 @@
             const dob = document.getElementById("txtdob").value
             const money = document.getElementById("money").value
             alert(dob)
-            data = {
+            salesManager = {
                 'name': name,
                 'age': age,
                 'dob': dob,
                 'money': money
             };
-            PageMethods.addRecord(JSON.stringify(data), OnSuccess)
+            PageMethods.addRecord(salesManager, OnSuccess)
          
 
         }

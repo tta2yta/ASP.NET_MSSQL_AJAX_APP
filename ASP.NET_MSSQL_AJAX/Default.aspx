@@ -1,36 +1,61 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ASP.NET_MSSQL_AJAX._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="sales-man-form">
-       <%-- <form name="sales-form" method="post" action="">--%>
-            <div><h3>Enter Details About Sales Manager</h3></div>
-           <div>
-                <label style="width:15%; text-align:right">Enter Sales Manager Name</label><asp:TextBox ID="txtname" runat="server" Height="27px" Width="25%"></asp:TextBox><br />
+     <div class="sales-man-form">
+          <h2>ASP.NET with JQUERY(Ajax) to insert and retrieve Record</h2>
+              <div><h3>Enter Details About Sales Manager</h3></div>
+                  
+        
+            
+            <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/AjaxWithScriptManager.aspx">Script Manager</asp:LinkButton>
+           <div style="display:flex; flex-direction:row">
+                 <div style="text-align:right; border:1px red solid; width:30%">
+                    <label style=" text-align:right">Enter Sales Manager Name</label>
+                </div>
+                   <div style="text-align:left; border:1px red solid; width:70%">
+                    <asp:TextBox ID="txtname" runat="server" Height="27px" Width="25%"></asp:TextBox><br />
+                </div>
+              
            </div>
 
-            <div>
-                <label style=" width:15%; text-align:right">Enter Age</label><input type="text" name="age" id="age" style="width:25%;height:27px" />
+           <div style="display:flex; flex-direction:row">
+               <div style="text-align:right; border:1px red solid; width:30%">
+                    <label style="text-align:right">Enter Age</label>
+               </div> 
+                <div style="text-align:left; border:1px red solid; width:70%">
+                    <input type="text" name="age" id="age" style="width:25%;height:27px" />
+               </div>
+               
             </div>
-            <div class="calander">
-                <div class="calander-la">
+           <div style="display:flex; flex-direction:row">
+                <div style="text-align:right; border:1px red solid; width:30%">
                       <label >Enter Date of Birth</label>
                 </div>
               
                <%-- <asp:TextBox ID="txtdob" runat="server" Height="27px" Width="25%"></asp:TextBox>--%>
-                <div class="calander-lb">
+                 <div style="text-align:left; border:1px red solid; width:70%">
                     <input type="date" id="txtdob" name="birthdaytime" value="2020-07-02" />
                    <%--%--  <asp:Calendar ID="txtdob" runat="server" SelectedDate="11/11/2020 13:30:28"></asp:Calendar>--%>
                   </div>
             </div> 
-            <div>
-                <label style=" width:15%; text-align:right">Enter Income</label><input type="text" name="money" id="money" style="width:25%;height:27px" />
+            <div style="display:flex; flex-direction:row">
+                <div style="text-align:right; border:1px red solid; width:30%">
+                    <label style=" width:15%; text-align:right">Enter Income</label>
+                    </div>
+                 <div style="text-align:left; border:1px red solid; width:70%">
+                      <input type="text" name="money" id="money" style="width:25%;height:27px" />
+                     </div>
+               
             </div>
       
-            <div style="margin-left:20%"><input type="button" id="add" value="add" /><asp:Button ID="addajax" Text="AJAX" runat="server" OnClick="addajax_Click" /></div>
-    <%--</form>--%>
+            <div style=" display:flex; flex-direction:row; border:1px blue solid;">
+                <input type="button" id="add" style="margin-left: 40%;" value="add" onclick="addRecord()" />
+
+            </div>
+    
         
         <div id="msg"></div>
-            </div>
+  </div>
 
    
 
