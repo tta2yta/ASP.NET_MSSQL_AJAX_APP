@@ -58,7 +58,7 @@
               //alert("Hello")
                 const name = document.getElementById("<%=txtname.ClientID%>").value;
                 const age = document.getElementById("age").value;
-                //var age=$("#age.val();
+                //var age=$("#age).val();
                 const dob = document.getElementById("txtdob").value
                
                 const money = document.getElementById("money").value;
@@ -75,7 +75,7 @@
              // alert(JSON.stringify(data));
                 console.log(data);
               //return;
-                var pagePath = window.location.pathname + "/method";
+                var pagePath = window.location.pathname + "/addRecord";
                 var dataString = "{ 'value':'ab} ";
               //alert(pagePath);
 

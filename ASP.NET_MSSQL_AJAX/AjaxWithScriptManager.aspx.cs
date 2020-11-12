@@ -40,7 +40,7 @@ namespace ASP.NET_MSSQL_AJAX
         [WebMethod, ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = false)]
         /*  public static string method(SalesManager salesManager)
           {*/
-        public static List<SalesManager> method(SalesManager salesManager)
+        public static List<SalesManager> addRecord(SalesManager salesManager)
         {
             //salesManager.age.ToString()
             if (!Regex.IsMatch(salesManager.age.ToString(), @"^\d+$") || salesManager.name == "")

@@ -12,6 +12,8 @@
               <div><h3>Enter Details About Sales Manager</h3></div> <span>
                   
         <form name="sales-form" method="post" action="" runat="server">
+            <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
+</asp:ScriptManager>
             <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Default.aspx">Home</asp:LinkButton></span>
            <div style="display:flex; flex-direction:row">
                  <div style="text-align:right; border:1px red solid; width:30%">
@@ -62,10 +64,11 @@
 
     <script type="text/javascript">
         function addRecord() {
+            alert('hi')
             const name = document.getElementById("<%=txtname.ClientID%>").value
             const age = document.getElementById("age").value
-            const dob = documnet.getElementById("txtdob").value
-            const money = document.getElementById("money").value()
+            const dob = document.getElementById("txtdob").value
+            const money = document.getElementById("money").value
             alert(dob)
             data = {
                 'name': name,
@@ -73,7 +76,7 @@
                 'dob': dob,
                 'money': money
             };
-            PageMethods.method(JSON.stringify(data), OnSuccess)
+            PageMethods.addRecord(JSON.stringify(data), OnSuccess)
          
 
         }

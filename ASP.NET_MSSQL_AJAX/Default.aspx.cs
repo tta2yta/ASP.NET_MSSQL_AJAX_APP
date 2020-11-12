@@ -59,7 +59,7 @@ namespace ASP.NET_MSSQL_AJAX
         [WebMethod]
         /*  public static string method(SalesManager salesManager)
           {*/
-        public static List<SalesManager> method(SalesManager salesManager)
+        public static List<SalesManager> addRecord(SalesManager salesManager)
         {
             //salesManager.age.ToString()
             if (!Regex.IsMatch(salesManager.age.ToString(), @"^\d+$") || salesManager.name=="")
