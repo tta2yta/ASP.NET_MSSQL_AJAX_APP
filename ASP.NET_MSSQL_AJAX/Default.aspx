@@ -94,7 +94,7 @@
                         function (result) {
                             alert(result.d + "Inserted");
                             console.log(result.d)
-                            res = handleSuccess(result.d)
+                            res = handleDisplaydata(result.d)
                             $('#msg').html(res)
 
                         }
@@ -104,7 +104,7 @@
 
             });
 
-            function handleSuccess(data) {
+            function handleDisplaydata(data) {
                 let res = "<table border='1'>";
                 let kk = "<h3>ppp</h3>";
                 for (let rr of data) {
