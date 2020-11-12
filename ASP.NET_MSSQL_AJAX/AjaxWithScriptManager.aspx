@@ -7,21 +7,47 @@
     <title></title>
 </head>
 <body>
-           <form id="form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
-        </asp:ScriptManager>
-        <div>
-        Your Name :
-        <asp:TextBox ID="txtUserName" runat="server" ></asp:TextBox>
-            <input id="btnGetTime" type="button" value="Show Current Time" onclick="ShowCurrentTime()" />
-        </div>
-                <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/AjaxCall.aspx">LinkButton</asp:LinkButton>
-        </form>
+          <div class="sales-man-form">
+       <%-- <form name="sales-form" method="post" action="">--%>
+            <div><h3>Enter Details About Sales Manager</h3></div>
+           <div>
+                <label style="width:15%; text-align:right">Enter Sales Manager Name</label><asp:TextBox ID="txtname" runat="server" Height="27px" Width="25%"></asp:TextBox><br />
+           </div>
+
+            <div>
+                <label style=" width:15%; text-align:right">Enter Age</label><input type="text" name="age" id="age" style="width:25%;height:27px" />
+            </div>
+            <div class="calander">
+                <div class="calander-la">
+                      <label >Enter Date of Birth</label>
+                </div>
+              
+               <%-- <asp:TextBox ID="txtdob" runat="server" Height="27px" Width="25%"></asp:TextBox>--%>
+                <div class="calander-lb">
+                    <input type="date" id="txtdob" name="birthdaytime" value="2020-07-02" />
+                   <%--%--  <asp:Calendar ID="txtdob" runat="server" SelectedDate="11/11/2020 13:30:28"></asp:Calendar>--%>
+                  </div>
+            </div> 
+            <div>
+                <label style=" width:15%; text-align:right">Enter Income</label><input type="text" name="money" id="money" style="width:25%;height:27px" />
+            </div>
+      
+            <div style="margin-left:20%"><input type="button" id="add" value="add" onclick="addRecord()" /><asp:Button ID="addajax" Text="AJAX" runat="server" OnClick="addajax_Click" /></div>
+    <%--</form>--%>
+        
+        <div id="msg"></div>
+            </div>
    
 
     <script type="text/javascript">
-        function ShowCurrentTime() {
-            PageMethods.GetCurrentTime(document.getElementById("<%=txtUserName.ClientID%>").value, OnSuccess);
+        function addRecord() {
+            const name = document.getElementById("<%=txtname.ClientID%>").value
+            const age = document.getElementById("age").value
+            const dob = documnet.getElementById("txtdob").value
+            const money = document.getElementById("money").value()
+           
+         
+
         }
         function OnSuccess(response, userContext, methodName) {
             alert(response);
