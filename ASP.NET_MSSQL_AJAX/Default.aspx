@@ -106,7 +106,7 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "Default.aspx/method",
+                    url: "Default.aspx/addRecord",
                     contentType: "application/json; charset=utf-8",
                     data: JSON.stringify({ salesManager: data }),
                     dataType: "json",  
