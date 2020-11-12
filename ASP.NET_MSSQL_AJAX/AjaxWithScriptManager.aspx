@@ -9,14 +9,28 @@
 </head>
 <body>
           <div class="sales-man-form">
+              <div><h3>Enter Details About Sales Manager</h3></div> <span>
+                  
         <form name="sales-form" method="post" action="" runat="server">
-            <div><h3>Enter Details About Sales Manager</h3></div>
-           <div>
-                <label style="width:15%; text-align:right">Enter Sales Manager Name</label><asp:TextBox ID="txtname" runat="server" Height="27px" Width="25%"></asp:TextBox><br />
+            <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Default.aspx">Home</asp:LinkButton></span>
+           <div style="display:flex; flex-direction:row">
+                 <div style="text-align:right; border:1px red solid; width:30%">
+                    <label style=" text-align:right">Enter Sales Manager Name</label>
+                </div>
+                   <div style="text-align:left; border:1px red solid; width:70%">
+                    <asp:TextBox ID="txtname" runat="server" Height="27px" Width="25%"></asp:TextBox><br />
+               </div>
+              
            </div>
 
-            <div>
-                <label style=" width:15%; text-align:right">Enter Age</label><input type="text" name="age" id="age" style="width:25%;height:27px" />
+            <div style="display:flex; flex-direction:row">
+               <div style="text-align:right; border:1px red solid; width:30%">
+                    <label style="text-align:right">Enter Age</label>
+               </div> 
+                <div style="text-align:left; border:1px red solid; width:70%">
+                    <input type="text" name="age" id="age" style="width:25%;height:27px" />
+               </div>
+               
             </div>
             <div class="calander">
                 <div class="calander-la">
