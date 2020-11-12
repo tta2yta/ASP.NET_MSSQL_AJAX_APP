@@ -45,7 +45,13 @@
             const age = document.getElementById("age").value
             const dob = documnet.getElementById("txtdob").value
             const money = document.getElementById("money").value()
-           
+            data = {
+                'name': name,
+                'age': age,
+                'dob': dob,
+                'money': money
+            };
+            PageMethods.method(JSON.stringify(data), OnSuccess)
          
 
         }
