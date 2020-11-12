@@ -5,10 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="Scripts/Css/style.css" rel="stylesheet" />
 </head>
 <body>
           <div class="sales-man-form">
-        <form name="sales-form" method="post" action="">
+        <form name="sales-form" method="post" action="" runat="server">
             <div><h3>Enter Details About Sales Manager</h3></div>
            <div>
                 <label style="width:15%; text-align:right">Enter Sales Manager Name</label><asp:TextBox ID="txtname" runat="server" Height="27px" Width="25%"></asp:TextBox><br />
