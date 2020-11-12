@@ -53,7 +53,7 @@
                
             </div>
       
-            <div style="margin-left:10%; border:1px blue solid;"><input type="button" id="add" value="add" onclick="addRecord()" /></div>
+            <div style=" display:flex; flex-direction:row; border:1px blue solid;"><input type="button" id="add" style="margin-left:40%;" value="add" onclick="addRecord()" /></div>
     </form>
         
         <div id="msg"></div>
@@ -66,6 +66,7 @@
             const age = document.getElementById("age").value
             const dob = documnet.getElementById("txtdob").value
             const money = document.getElementById("money").value()
+            alert(dob)
             data = {
                 'name': name,
                 'age': age,
